@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.dothantech.hellodemo1" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <!-- 标签打印插件 -->
+    <feature name="LPAPIPlugin">		<!-- name对应服务名称，在调用的js中会用到该名称 -->
+        <param name="android-package" value="com.dothantech.lpapi.cordova.LPAPIPlugin"/>
+        <param name="onload" value="true" />		<!-- 启动时加载插件 -->
+    </feature>
+    <name>LPAPIPlugin</name>
+    <description>
+        A Cordova plugin for lpapi.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="market:*" />
+    <preference name="loglevel" value="DEBUG" />
+</widget>
