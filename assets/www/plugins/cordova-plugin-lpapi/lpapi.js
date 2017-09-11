@@ -9,9 +9,7 @@ cordova.define("cordova-plugin-lpapi.LPAPI",
 			GET_PRINTER_NAME: "getPrinterName",
 			IS_PRINTER_OPENED: "isPrinterOpened",
 			OPEN_PRINTER: "openPrinter",
-			OPEN_PRINTER_SYNC: "openPrinterSync",
 			REOPEN_PRINTER: "reopenPrinter",
-			REOPEN_PRINTER_SYNC: "reopenPrinterSync",
 			CLOSE_PRINTER: "closePrinter",
 
 			GET_HORIZONTAL_ALIGNMENT: "getHorizontalAlignment",
@@ -54,51 +52,50 @@ cordova.define("cordova-plugin-lpapi.LPAPI",
 		var api = {};
 		var serviceName = "LPAPIPlugin";
 		api.getAllPrinters = function (success, fail) {
-			exec(success, fail, serviceName, "getAllPrinters", {});
+			exec(success || function(args){}, fail || function(args){}, serviceName, actions.GET_ALL_PRINTERS, {});
 		};
-
 		api.getPrinterName = function (success, fail) {
-
+			exec(success || function(args){}, fail || function(args){}, serviceName, actions.GET_PRINTER_NAME, {});
 		};
 		api.isPrinterOpened = function (success, fail) {
-
+			exec(success || function(args){}, fail || function(args){}, serviceName, actions.IS_PRINTER_OPENED, {});
 		};
 		api.openPrinter = function (printerName, success, fail) {
-
-		};
-		api.openPrinterSync = function (printerName, success, fail) {
-
+			exec(success || function(args){}, fail || function(args){}, serviceName, actions.OPEN_PRINTER, {});
 		};
 		api.reopenPrinter = function (success, fail) {
-
-		};
-		api.reopenPrinterSync = function (success, fail) {
-
+			exec(success || function(args){}, fail || function(args){}, serviceName, actions.REOPEN_PRINTER, {});
 		};
 		api.closePrinter = function () {
-
+			exec(function(args){}, function(args){}, serviceName, actions.CLOSE_PRINTER, {});
 		};
 		// 参数获取与设置
 		api.getItemHorizontalAlignment = function (success, fail) {
-
+			exec(success || function(args){}, fail || function(args){}, serviceName, actions.GET_HORIZONTAL_ALIGNMENT, {});
 		};
 		api.setItemHorizontalAlignment = function (horizontalAlignment) {
-
+			exec(function(args){}, function(args){}, serviceName, actions.SET_HORIZONTAL_ALIGNMENT, {
+				alignment : horizontalAlignment
+			});
 		};
 		api.getItemVerticalAlignment = function (success, fail) {
-
+			exec(success || function(args){}, fail || function(args){}, serviceName, actions.GET_VERTICAL_ALIGNMENT, {});
 		};
 		api.setItemVerticalAlignment = function (verticalAlignment) {
-
+			exec(function(args){}, function(args){}, serviceName, actions.SET_VERTICAL_ALIGNMENT, {
+				alignment : verticalAlignment
+			});
 		};
 		api.getItemOrientation = function (success, fail) {
-
+			exec(success || function(args){}, fail || function(args){}, serviceName, actions.GET_ORIENTATION, {});
 		};
 		api.setItemOrientation = function (orientation) {
-
+			exec(function(args){}, function(args){}, serviceName, actions.SET_ORIENTATION, {
+				orientation : orientation
+			});
 		};
 		api.getItemPenAlignment = function (success, fail) {
-
+			exec(success || function(args){}, fail || function(args){}, serviceName, actions.GET_PEN_ALIGNMENT, {});
 		};
 		api.setItemPenAlignment = function (penAlignment) {
 			exec(function () {}, function () {}, serviceName, Actions.SET_PEN_ALIGNMENT, {
