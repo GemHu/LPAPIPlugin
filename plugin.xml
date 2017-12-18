@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- 插件的Id，安装后注册的Id为此id加js-moudle的name属性,即cordova_plugins.js里的id属性 -->
+<plugin id="cordova-plugin-lpapi" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- 插件名称 -->
+    <name>LPAPIPlugin</name>
+	<!-- 插件描述 -->
+    <description>本插件为德佟电子科技（上海）有限公司提供用户混合开发模式的标签打印机插件，通过该插件，用户可以操作德佟电子所提供的不同型号的打印机</description>
+	<!-- js文件的地址，安装后路径为：plugins/插件Id/src属性值 -->
+	<js-module name="LPAPIPlugin" src="www/android/LPAPIPlugin.js">
+		<!-- 跟asserts/cordova_plugins.js中填clobbers的值一样 -->
+        <clobbers target="LPAPIPlugin" />
+	</js-module>
+	<js-module name="LPAPI" src="www/android/LPAPI.js">
+	<!-- 跟asserts/cordova_plugins.js中填clobbers的值一样 -->
+    	<clobbers target="LPAPI" />
+	</js-module>
+	
+	<!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+			<!-- config-file中包含的这段会原封不动的插入到config.xml文件中 -->
+			<feature name="LPAPIPlugin">		<!-- name对应服务名称，在调用的js中会用到该名称 -->
+				<param name="android-package" value="com.dothantech.lpapi.cordova.LPAPIPlugin" />
+				<param name="onload" value="true" />		<!-- 启动时加载插件 -->
+			</feature>
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/*">  
+			<!-- 蓝牙权限配置 -->
+			<uses-permission android:name="android.permission.BLUETOOTH" />
+			<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+        </config-file> 
+        <!-- 本地代码，有多个文件就写多个source-file，src对应本项目，target对应安装后的目录 -->
+        <source-file src="src/android/LPAPIPlugin.java" target-dir="src/com/dothantech/lpapi/cordova"/>
+        <source-file src="src/android/LPAPIBridge.java" target-dir="src/com/dothantech/lpapi/cordova"/>
+		<source-file src="src/android/LPAPI-2017-11-06-R.jar" target-dir="libs" />
+    </platform>
+    <!-- ios -->
+</plugin>

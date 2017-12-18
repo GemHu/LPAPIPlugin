@@ -1,0 +1,15 @@
+{
+  "name": "lpapiplugin",
+  "version": "0.0.1",
+  "description": "本接口提供用于操作德佟电子标签打印机的打印接口",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github"
+  },
+  "author": "DothanTech",
+  "license": "ISC"
+}
